@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fuente Sans-serif por defecto para todo el texto normal */
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.product-landing-wrap {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    position: relative;
+    /* Un borde muy sutil alrededor de todo según se ve en la imagen original */
+    border: 1px solid #eaeaea;
+    padding: 60px;
+}
+
+/* --- LADO IZQUIERDO --- */
+.info-side-panel {
+    flex: 1;
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Emblema circular rotatorio (Hecho con SVG para simular texto curvo) */
+.circular-emblem {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 30px;
+}
+
+.emblem-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    color: #000;
+}
+
+.rotating-text-svg {
+    width: 100%;
+    height: 100%;
+    animation: rotate 15s linear infinite;
+}
+
+.rotating-text-svg text {
+    font-size: 11px;
+    letter-spacing: 2.5px;
+    fill: #333;
+    text-transform: uppercase;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Título Serif */
+.hero-serif-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.8rem;
+    color: #111;
+    line-height: 1.1;
+    margin-bottom: 30px;
+}
+
+.hero-paragraph {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Botones */
+.action-buttons-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+}
+
+.btn-primary-dark,
+.btn-secondary-outline {
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.btn-primary-dark {
+    background-color: #050505;
+    color: #ffffff;
+    border: 2px solid #050505;
+}
+
+.btn-primary-dark:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+.btn-secondary-outline {
+    background-color: transparent;
+    color: #333;
+    border: 2px solid #ccc;
+}
+
+.btn-secondary-outline:hover {
+    border-color: #050505;
+}
+
+/* Caja de características inferior */
+.features-box-outline {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #888;
+    border-radius: 16px;
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 480px;
+}
+
+.feature-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+.feature-mini i {
+    font-size: 1.2rem;
+    color: #111;
+}
+
+.feature-mini p {
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.2;
+}
+
+
+/* --- LADO DERECHO (COMPOSICIÓN DE IMAGEN) --- */
+.visual-side-panel {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.composition-container {
+    position: relative;
+    width: 450px;
+    height: 600px;
+}
+
+/* Imagen del reloj */
+.hero-product-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 380px;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 2;
+    background-color: #000;
+    /* Fondo negro por si la imagen tarda en cargar */
+}
+
+/* Borde fino decorativo (Wireframe) */
+.wireframe-decor {
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    width: 380px;
+    height: 520px;
+    border: 1.5px solid #333;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+/* Estrella SVG */
+.star-decor {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 70px;
+    height: 70px;
+    z-index: 3;
+    /* La rotamos un poco a la izquierda como en la foto */
+    transform: rotate(-15deg);
+}
+
+/* Etiquetas Moradas */
+.floating-tag {
+    position: absolute;
+    background-color: #6B5BDB;
+    /* Color morado exacto de la foto */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 4;
+}
+
+.tag-top-right {
+    top: 40px;
+    right: -10px;
+}
+
+.tag-bottom-left {
+    bottom: 40px;
+    left: -40px;
+}
+
+/* Destellos / Sparkles sobre la imagen oscura */
+.sparkle-svg {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    z-index: 5;
+}
+
+.sparkle-1 {
+    top: 100px;
+    left: 40px;
+    width: 30px;
+    height: 30px;
+}
+
+.sparkle-2 {
+    bottom: 80px;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+/* --- RESPONSIVE BASICO --- */
+@media (max-width: 1024px) {
+    .product-landing-wrap {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        border: none;
+    }
+
+    .info-side-panel {
+        max-width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .action-buttons-group {
+        justify-content: center;
+    }
+
+    .visual-side-panel {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .composition-container {
+        transform: scale(0.9);
+    }
+}
