@@ -1,8 +1,3 @@
-## inicio landing page
-
-## inicio landing page
-## Acceso al Proyecto
-
 # Proyecto de Landing Pages
 
 Este repositorio contiene una colección de diversas páginas de aterrizaje (landing pages) diseñadas para diferentes propósitos, desde tecnología y bienestar hasta viajes y diseño retro.
