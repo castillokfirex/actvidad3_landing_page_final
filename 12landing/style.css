@@ -1,0 +1,254 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    /* Un min-height fuerte para garantizar espacio al collage tipo póster */
+    min-height: 1100px;
+    overflow-x: hidden;
+}
+
+/* El lienzo principal de 1200px de ancho y 900px de alto. */
+/* Al tener dimensions fijas relativas nos permite colocar cada foto y figurita en posiciones x,y perfectas */
+.poster-layout-canvas {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 900px;
+    margin-top: 50px;
+    /* Separación de arriba */
+}
+
+/* =========================================
+   1. BLOQUE DE TEXTO
+========================================= */
+.typography-anchor {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    z-index: 5;
+    /* Texto encima de posibles cruces */
+}
+
+.statement-title {
+    font-size: 3.8rem;
+    color: #2F2D2D;
+    /* Gris casi negro puro */
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 25px;
+}
+
+.supporting-paragraph {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+.btn-dark-oval {
+    display: inline-block;
+    background-color: #242424;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 13px 35px;
+    border-radius: 25px;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-dark-oval:hover {
+    background-color: #000;
+}
+
+/* =========================================
+   2. IMÁGENES DENTRO DEL COLLAGE
+========================================= */
+.floating-pic {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 12px;
+    /* Esquinas ligeramente redondeadas en todas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    /* Sombra tenue para separar capas */
+}
+
+/* Foto Azul Marina arriba derecha */
+.top-right-blue {
+    top: 30px;
+    right: 20px;
+    width: 290px;
+    height: 480px;
+    z-index: 10;
+}
+
+/* Foto Central (Bloques de cristal) */
+/* Cae justo en medio cruzándose un poco bajo las demás */
+.center-crystal {
+    top: 250px;
+    right: 320px;
+    /* La alejamos del borde derecho para centrarla en el canvas secundario */
+    width: 280px;
+    height: 450px;
+    z-index: 5;
+}
+
+/* Foto Rosa Inferior Izquierda */
+.bottom-left-pink {
+    bottom: -80px;
+    /* Sale por abajo del póster */
+    left: 320px;
+    /* Alineada bajo el texto pero desplazada a la derecha */
+    width: 280px;
+    height: 450px;
+    z-index: 2;
+    /* La base es recta según la foto */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    /* Color de fondo similar a la plataforma gris de la foto para simularla */
+    background-color: #E6E6E6;
+    padding: 20px;
+    object-fit: contain;
+    /* Para simular esa figura 3D que mostraste */
+}
+
+/* =========================================
+   3. DECORACIONES GEOMÉTRICAS (SVGs)
+========================================= */
+.geo-decor {
+    position: absolute;
+}
+
+/* Ondas Arriba al Medio */
+.wave-graphics {
+    top: 50px;
+    left: 370px;
+    width: 320px;
+    height: 90px;
+    z-index: 8;
+}
+
+/* Estrella Grande Izquierda (cruzando la imagen central) */
+.star-left-overlay {
+    top: 380px;
+    left: 420px;
+    width: 200px;
+    height: 200px;
+    z-index: 15;
+    /* MUY IMPORTANTE: Sobre la imagen de cristal */
+}
+
+/* Estrella Grande Derecha */
+.star-right-clear {
+    top: 550px;
+    right: 40px;
+    width: 220px;
+    height: 220px;
+    z-index: 2;
+    /* Debajo de la azul */
+}
+
+/* El resorte o muelle (Abajo a la izquierda) */
+.spring-graphic {
+    bottom: -100px;
+    /* Muy abajo */
+    left: 50px;
+    /* Debajo del botón negro */
+    width: 120px;
+    height: 280px;
+    z-index: 4;
+}
+
+
+/* =========================================
+   4. AUTOR / FOOTER
+========================================= */
+.mini-author-block {
+    position: absolute;
+    bottom: -40px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 450px;
+    z-index: 10;
+}
+
+.author-bw-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.author-caption {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* === RESPONSIVE ESTRICTO === */
+/* Dado que están en coordenadas fijas, en pantallas menores a 1200 cortamos elementos para que no colisionen o escalamos TODO */
+@media (max-width: 1250px) {
+    .poster-layout-canvas {
+        transform: scale(0.85);
+        /* Escalamos todo el póster para que quepa en laptops sin romper nada */
+        transform-origin: top left;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .poster-layout-canvas {
+        transform: scale(0.65);
+    }
+}
+
+@media (max-width: 700px) {
+
+    /* En móvil regresamos al flujo normal de flexbox o el diseño absolute colapsará feo */
+    body {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .poster-layout-canvas {
+        transform: none;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+    }
+
+    .typography-anchor,
+    .floating-pic,
+    .geo-decor,
+    .mini-author-block {
+        position: static;
+        /* Apagamos todas las coordenadas absolutas */
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .floating-pic {
+        height: auto;
+        aspect-ratio: 3/4;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    /* Apagamos los SVGs geométricos en móvil porque ensucian el diseño 1 en línea */
+    .geo-decor {
+        display: none;
+    }
+}
