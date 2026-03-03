@@ -1,0 +1,162 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #555555;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+    gap: 40px;
+}
+
+.content-text {
+    flex: 1;
+    max-width: 500px;
+}
+
+.main-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #222222;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: #666666;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background-color: #222222;
+    color: #ffffff;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 40px;
+    font-size: 1.05rem;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.content-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-img img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+}
+
+
+.features-card {
+    background-color: #272727;
+    border-radius: 30px;
+    padding: 60px 80px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.feature-item {
+    flex: 1;
+    color: #ffffff;
+}
+
+.feature-icon {
+    margin-bottom: 16px;
+    display: block;
+}
+
+.feature-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.feature-desc {
+    font-size: 0.95rem;
+    color: #aaaaaa;
+    line-height: 1.6;
+}
+
+
+
+
+@media (max-width: 950px) {
+    .container {
+        padding: 40px 20px;
+    }
+
+    .hero-section {
+        flex-direction: column;
+
+        text-align: center;
+        gap: 60px;
+    }
+
+    .content-text {
+        max-width: 100%;
+    }
+
+    .content-img {
+        justify-content: center;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .features-card {
+        flex-direction: column;
+        padding: 40px;
+        gap: 40px;
+    }
+
+    .feature-item {
+        text-align: center;
+    }
+
+    .feature-icon {
+        margin: 0 auto 16px auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 2.8rem;
+    }
+
+    .features-card {
+        padding: 30px 20px;
+    }
+}
