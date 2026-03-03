@@ -1,0 +1,351 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Fuente Lora para textos legibles tipo libro botánico */
+    font-family: 'Lora', serif;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    /* Se requiere una altura mínima decente para que el lienzo de absolute quepa bien */
+    min-height: 100vh;
+    padding: 40px;
+    overflow-x: hidden;
+}
+
+/* 
+  Contenedor envolvente. Permite aplicar un zoom al lienzo `editorial-collage-layout` 
+  en resoluciones menores para mantener la proporción sin que todo explote. 
+*/
+.botanical-canvas-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* 
+  Lienzo Maestro: Fixed size en escritorio. 
+  Aquí sucede toda la magia de `position: absolute`.
+*/
+.editorial-collage-layout {
+    position: relative;
+    width: 1200px;
+    height: 900px;
+}
+
+/* =========================================
+   TEXTOS Y TIPOGRAFÍAS
+========================================= */
+
+/* Para los títulos "Adventure, Voyage..." usamos Playfair Display */
+.elegant-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #383838;
+    /* Gris muy oscuro mate */
+    font-weight: 400;
+    /* Fino es más elegante */
+    letter-spacing: -0.5px;
+}
+
+.large-subtitle {
+    font-size: 3.2rem;
+}
+
+.heading-line {
+    display: block;
+    /* Cada palabra ocupa su propia línea */
+    line-height: 1.3;
+}
+
+.body-text {
+    font-size: 1.1rem;
+    color: #555555;
+    line-height: 1.6;
+}
+
+/* =========================================
+   BLOQUES DE CONTENIDO (ABSOLUTES)
+========================================= */
+
+/* Arriba a la izquierda (Título + Párrafo + Botón) */
+.block-hero {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    z-index: 10;
+}
+
+.paragraph-spacing {
+    margin-top: 35px;
+    margin-bottom: 40px;
+}
+
+.primary-pill-btn {
+    display: inline-block;
+    background-color: #518168;
+    /* Verde opaco */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    /* Rompe con Arial moderna */
+    text-decoration: none;
+    padding: 14px 38px;
+    border-radius: 40px;
+    /* Extremo redondeado "Píldora" */
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.primary-pill-btn:hover {
+    background-color: #3b614d;
+    transform: translateY(-2px);
+}
+
+
+/* Estrella cerca de "Voyage" */
+.decor-star {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    z-index: 5;
+}
+
+.star-top-left {
+    top: 130px;
+    left: 300px;
+    /* Alineada al final de la palabra "Voyage" */
+}
+
+
+/* =========================================
+   PÍLDORAS E IMÁGENES
+========================================= */
+
+.pill-frame {
+    position: absolute;
+    overflow: hidden;
+    /* Forzar curvas completas a los lados de rectángulos verticales = Forma de Píldora */
+    border-radius: 200px;
+    /* Fondo claro por si las imágenes no cargan */
+    background-color: #eaeaea;
+}
+
+.fit-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Clúster Inferior Izquierdo (2 Píldoras) */
+.cluster-bottom-left {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 320px;
+    height: 280px;
+}
+
+/* Píldora de atrás (Helechos verdes), mas baja y a la izquierda */
+.frame-bl-back {
+    bottom: 0px;
+    left: 0px;
+    width: 150px;
+    height: 260px;
+    z-index: 1;
+}
+
+/* Píldora de enfrente (Flores blancas), un poco subida y a la derecha */
+.frame-bl-front {
+    bottom: 30px;
+    left: 170px;
+    width: 150px;
+    height: 250px;
+    z-index: 2;
+}
+
+/* =========================================
+   CENTRO GIGANTE & ARCO DE LOGO
+========================================= */
+.block-center-feature {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* Centrado absoluto exacto en el lienzo */
+    width: 330px;
+    height: 650px;
+    z-index: 2;
+}
+
+.frame-center-giant {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+/* SVG curvo con el texto "Plant . Tree . Nature" abrazando la píldora por arriba */
+.circular-text-svg {
+    position: absolute;
+    top: -60px;
+    /* Sube la curva un poco de la cápsula foto central */
+    /* Empujar hacia la izquierda para alinear el arco a las dimensiones de la caja de la foto */
+    left: -85px;
+    width: 500px;
+    /* Más ancha que la píldora (330px) para que caiga por los bordes */
+    height: 300px;
+    z-index: 10;
+    pointer-events: none;
+    /* Que el click pase atravez de ella al cuadro si hiciera falta */
+}
+
+.serif-arch-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 500;
+    fill: #1e3a2e;
+    /* Verde oscuro */
+    letter-spacing: 5px;
+    /* Espaciado clave para que se extienda por el arco */
+}
+
+/* =========================================
+   CLÚSTER SUPERIOR DERECHO (2 Píldoras)
+========================================= */
+.cluster-top-right {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    width: 320px;
+    height: 330px;
+}
+
+/* Píldora de atrás (Hojas grises abstractas), posicionada arriba izquierda */
+.frame-tr-back {
+    top: 0px;
+    left: 10px;
+    width: 155px;
+    height: 260px;
+    z-index: 1;
+}
+
+/* Píldora frontal (Suculentas fuertes), desplazada a la derecha y cayendo poco más */
+.frame-tr-front {
+    top: 60px;
+    right: 0px;
+    width: 155px;
+    height: 290px;
+    z-index: 2;
+}
+
+/* =========================================
+   MEDIO / INFERIOR DERECHO
+========================================= */
+.block-mid-right {
+    position: absolute;
+    top: 380px;
+    /* Alineado justo bajo las suculentas de arriba */
+    right: 70px;
+    max-width: 250px;
+    /* Las líneas de este texto son cortas */
+    z-index: 5;
+}
+
+.star-mid-right {
+    /* Reseteamos para evitar bugs del .decor-star */
+    position: relative;
+    margin-bottom: 25px;
+    /* Empuja el texto inferior hacia abajo */
+    margin-left: 0px;
+}
+
+.block-bottom-right {
+    position: absolute;
+    bottom: 50px;
+    right: 110px;
+}
+
+
+/* =========================================
+   RESPONSIVE Y TABLET (SCALING MAGIC)
+========================================= */
+/* La única forma estable de hacer responsive a un póster posicionado en abs, 
+   es usar transform: scale() en vez de rehacer todo el código */
+
+@media (max-width: 1250px) {
+    .editorial-collage-layout {
+        transform: scale(0.8);
+        transform-origin: top center;
+        margin-bottom: -150px;
+        /* Recorta la altura muerta al achicar SVG escalón */
+    }
+}
+
+@media (max-width: 1000px) {
+    .editorial-collage-layout {
+        transform: scale(0.65);
+        margin-bottom: -300px;
+    }
+}
+
+@media (max-width: 700px) {
+
+    /* Si te ves desde celular (es muy pequeño) apilamos las cosas "normalmente" */
+    .editorial-collage-layout {
+        width: 100%;
+        transform: scale(1);
+        /* Quitamos el scale para hacer auto height */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        gap: 50px;
+    }
+
+    .block-hero,
+    .pill-cluster,
+    .block-center-feature,
+    .block-mid-right,
+    .block-bottom-right {
+        position: static;
+        width: 100%;
+        max-width: 400px;
+        transform: none;
+        /* Quitamos transformaciones y offsets */
+    }
+
+    .block-hero {
+        text-align: center;
+    }
+
+    .star-top-left,
+    .circular-text-svg,
+    .star-mid-right {
+        display: none;
+        /* Quitamos decoraciones SVG complejas en celular para evitar desastre */
+    }
+
+    /* Rompemos el cluster de cápsulas para que se pongan una bajo otra */
+    .pill-cluster {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        height: auto;
+    }
+
+    .pill-frame {
+        position: static;
+        aspect-ratio: 1/2;
+        /* Lo regresamos a pildora estándar */
+        height: auto;
+        width: 100%;
+    }
+}
