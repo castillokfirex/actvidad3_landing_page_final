@@ -29,3 +29,8 @@ A continuación se detallan algunas de las landings más relevantes con sus resp
 | **Landing 41** | Dream House | Landing inmobiliaria enfocada en encontrar la casa de tus sueños. | |
 | **Landing 45** | Retro Design | Estética clásica y vintage aplicada al diseño web moderno. |  |
 | **Landing 50** | Beautiful Designs | Una recopilación de los mejores y más hermosos diseños finales. |  |
+
+AUTORES:
+Andrey Julian Ricaurte Duran
+Daniel Eduardo Jaimes Gamboa
+Kevin Andres Castillo Pabon

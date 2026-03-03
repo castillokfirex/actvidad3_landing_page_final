@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Índice — Sitio con 30 páginas</title>
+  <link rel="stylesheet" href="/index.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>Índice del sitio</h1>
+      <p class="subtitle">Haz click en cualquiera de las 30 páginas para abrirla.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav aria-label="Lista de páginas">
+      <ul class="pages-grid">
+        <li><a href="/3landing/index.html">Página 3</a></li>
+        <li><a href="/4landing/index.html">Página 4</a></li>
+        <li><a href="/6landing/index.html">Página 6</a></li>
+        <li><a href="/10landing/index.html">Página 10</a></li>
+        <li><a href="/11landing/index.html">Página 11</a></li>
+        <li><a href="/12landing/index.html">Página 12</a></li>
+        <li><a href="/14landing/index.html">Página 14</a></li>
+        <li><a href="/15landing/index.html">Página 15</a></li>
+        <li><a href="/22landing/index.html">Página 22</a></li>
+        <li><a href="/33landing/index.html">Página 33</a></li>
+        <li><a href="/38landing/index.html">Página 38</a></li>
+        <li><a href="/40landing/index.html">Página 40</a></li>
+        <li><a href="/41landing/index.html">Página 41</a></li>
+        <li><a href="/45landing/index.html">Página 45</a></li>
+        <li><a href="/50landing/index.html">Página 50</a></li>
+    </ul>
+    </nav>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© <span id="year"></span> Mi Sitio — Todos los derechos reservados</small>
+    </div>
+  </footer>
+
+  <script>
+    // Inserta año actual en el footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
