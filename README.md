@@ -26,6 +26,12 @@ A continuación se detallan algunas de las landings más relevantes con sus resp
 | **Landing 50** | Beautiful Designs | Una recopilación de los mejores y más hermosos diseños finales. |  |
 
 AUTORES:
-Andrey Julian Ricaurte Duran
-Daniel Eduardo Jaimes Gamboa
-Kevin Andres Castillo Pabon
+**Andrey Julian Ricaurte Duran**
+
+
+
+**Daniel Eduardo Jaimes Gamboa**
+
+
+
+**Kevin Andres Castillo Pabon**
